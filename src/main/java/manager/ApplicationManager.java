@@ -17,7 +17,7 @@ public class ApplicationManager {
     {
         wd = new ChromeDriver();
         wd.manage().window().maximize();
-        wd.navigate().to("https://ticket-service-69443.firebaseapp.com/");
+        wd.navigate().to("https://ilcarro.web.app/");
         wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         userHelper  = new HelperUser(wd);
 
