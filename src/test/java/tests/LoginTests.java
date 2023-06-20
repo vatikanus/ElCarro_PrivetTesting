@@ -1,3 +1,5 @@
+package tests;
+
 import models.User;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -8,8 +10,8 @@ public class LoginTests extends TestBase {
 
     @BeforeMethod
     public void precondition(){
-        if (!app.getUserHelper().isLoginPresent()){
-            app.getUserHelper().logout();
+        if (!TestBase.app.getUserHelper().isLoginPresent()){
+            TestBase.app.getUserHelper().logout();
 
         }
     }
@@ -20,15 +22,15 @@ public class LoginTests extends TestBase {
         User user = new User().withEmail("evgeny@mail.ru").withPassword("123456Sa$");
 
 
-       app.getUserHelper().openloginForm();
+       TestBase.app.getUserHelper().openloginForm();
       // app.getUserHelper().fillLoginForm("evgeny@mail.ru","123456Sa$");
-       app.getUserHelper().fillLoginForm(user);
-       app.getUserHelper().submitForm();
-        Assert.assertTrue(app.getUserHelper().isLoggedSuccess());
+       TestBase.app.getUserHelper().fillLoginForm(user);
+       TestBase.app.getUserHelper().submitForm();
+        Assert.assertTrue(TestBase.app.getUserHelper().isLoggedSuccess());
 
     }
     @AfterMethod
     public void postCondition(){
-        app.getUserHelper().clickOkButton();
+        TestBase.app.getUserHelper().clickOkButton();
     }
 }

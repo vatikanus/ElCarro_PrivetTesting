@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
     WebDriver wd;
     HelperUser userHelper;
+    CarHelper car;
 
     public HelperUser getUserHelper() {
         return userHelper;
@@ -20,6 +21,7 @@ public class ApplicationManager {
         wd.navigate().to("https://ilcarro.web.app/");
         wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         userHelper  = new HelperUser(wd);
+        car = new CarHelper(wd);
 
     }
     public void stop()
@@ -27,6 +29,9 @@ public class ApplicationManager {
         wd.quit();
     }
 
+    public CarHelper getCar() {
+        return car;
+    }
 }
 
 

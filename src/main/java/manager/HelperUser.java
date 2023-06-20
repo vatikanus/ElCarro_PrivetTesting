@@ -57,4 +57,14 @@ public class HelperUser extends HelperBase
         if(isElementPresent(By.xpath("//*[@id=\"mat-dialog-0\"]/app-error/div/div/button")))
             click(By.xpath("//*[@id=\"mat-dialog-0\"]/app-error/div/div/button"));
     }
+
+    public void login(User user)
+    {
+        openloginForm();
+        fillLoginForm(user);
+        submitForm();
+        clickOkButton();
+        pause(2000);
+
+    }
 }

@@ -31,5 +31,19 @@ public class HelperBase {
 
         }
     }
+    public void pause(int millis)
+    {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public String ElementPresent(By locator)
+    {
+        WebElement el = wd.findElement(locator);
+        String El = el.getText();
+        return El;
+    }
 }
 
